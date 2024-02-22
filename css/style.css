@@ -12,12 +12,6 @@ body {
     position: relative;
 }
 
-.background {
-    width: 100%;
-    height: calc(100vh - 150px);
-    background-color: #D8DBD5;
-}
-
 .green-row {
     width: 100%;
     background-color: #009688;
@@ -53,6 +47,8 @@ main {
     background-color: #EAEAEA;
     display: flex;
     justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 30px;
 }
 
 .chat-info {
@@ -92,8 +88,7 @@ ul li {
 }
 
 .chat-window {
-
-    height: 100%;
+    height: calc(100% - 70px);
     background-repeat: repeat;
 }
 
@@ -126,7 +121,6 @@ ul li {
 li {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 .conversation {
