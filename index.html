@@ -32,14 +32,12 @@
                             <div class="user-pic">
                                 <img src="./img/avatar_io.jpg" alt="io">
                             </div>
-
                             <div class="user-name">
                                 Sofia
                             </div>
                         </div>
 
                         <div class="options">
-
 
                             <i class="fa-solid fa-circle-notch"></i>
                             <i class="fa-solid fa-message"></i>
@@ -61,97 +59,13 @@
                 </div>
                 <div class="chat-list">
                     <ul>
-                        <li>
+                        <li v-for="(object, index) in contacts">
                             <div class="conversation">
                                 <div class="user-pic">
-                                    <img src="./img/avatar_1.jpg" alt="">
+                                    <img :src="object.avatar" alt="">
                                 </div>
                                 <div class="info-conversation">
-                                    <div class="name">Nome</div>
-                                    <div class="last-msg">Ultimo Messaggio inviato</div>
-                                </div>
-                            </div>
-                            <div class="last-msg-time">
-                                12:00
-                            </div>
-                        </li>
-                        <li>
-                            <div class="conversation">
-                                <div class="user-pic">
-                                    <img src="./img/avatar_2.jpg" alt="">
-                                </div>
-                                <div class="info-conversation">
-                                    <div class="name">Nome</div>
-                                    <div class="last-msg">Ultimo Messaggio inviato</div>
-                                </div>
-                            </div>
-                            <div class="last-msg-time">
-                                12:00
-                            </div>
-                        </li>
-                        <li>
-                            <div class="conversation">
-                                <div class="user-pic">
-                                    <img src="./img/avatar_3.jpg" alt="">
-                                </div>
-                                <div class="info-conversation">
-                                    <di class="name">Nome</di>
-                                    <div class="last-msg">Ultimo Messaggio inviato</div>
-                                </div>
-                            </div>
-                            <div class="last-msg-time">
-                                12:00
-                            </div>
-                        </li>
-                        <li>
-                            <div class="conversation">
-                                <div class="user-pic">
-                                    <img src="./img/avatar_4.jpg" alt="">
-                                </div>
-                                <div class="info-conversation">
-                                    <div class="name">Nome</div>
-                                    <div class="last-msg">Ultimo Messaggio inviato</div>
-                                </div>
-                            </div>
-                            <div class="last-msg-time">
-                                12:00
-                            </div>
-                        </li>
-                        <li>
-                            <div class="conversation">
-                                <div class="user-pic">
-                                    <img src="./img/avatar_6.jpg" alt="">
-                                </div>
-                                <div class="info-conversation">
-                                    <div class="name">Nome</div>
-                                    <div class="last-msg">Ultimo Messaggio inviato</div>
-                                </div>
-                            </div>
-                            <div class="last-msg-time">
-                                12:00
-                            </div>
-                        </li>
-                        <li>
-                            <div class="conversation">
-                                <div class="user-pic">
-                                    <img src="./img/avatar_6.jpg" alt="">
-                                </div>
-                                <div class="info-conversation">
-                                    <div class="name">Nome</div>
-                                    <div class="last-msg">Ultimo Messaggio inviato</div>
-                                </div>
-                            </div>
-                            <div class="last-msg-time">
-                                12:00
-                            </div>
-                        </li>
-                        <li>
-                            <div class="conversation">
-                                <div class="user-pic">
-                                    <img src="./img/avatar_7.jpg" alt="">
-                                </div>
-                                <div class="info-conversation">
-                                    <div class="name">Nome</div>
+                                    <div class="name">{{ object.name }}</div>
                                     <div class="last-msg">Ultimo Messaggio inviato</div>
                                 </div>
                             </div>
@@ -168,7 +82,9 @@
 
                     <div class="upper-nav">
                         <div>
-                            <div class="user-pic"></div>
+                            <div class="user-pic">
+                                <img src="./img/avatar_1.jpg" alt="">
+                            </div>
                             <div class="user-name"></div>
                         </div>
 
