@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+#app {
+    position: relative;
+}
+
+.background {
+    width: 100%;
+    height: calc(100vh - 150px);
+    background-color: #D8DBD5;
+}
+
+.green-row {
+    width: 100%;
+    background-color: #009688;
+    height: 150px;
+}
+
+main {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: calc(100vh - 60px);
+    width: 80%;
+    background-color: blue;
+    display: flex;
+}
+
+
+#aside {
+    width: 35%;
+    height: 100%;
+    background-color: green;
+}
+
+#chat {
+    width: 65%;
+    height: 100%;
+    background-color: blueviolet;
+}
+
+.user-info,
+.chat-info {
+    height: 70px;
+    background-color: #EAEAEA;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chat-info {
+    border-left: 1px solid;
+    border-color: black;
+}
