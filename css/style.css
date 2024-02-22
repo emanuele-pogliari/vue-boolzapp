@@ -6,6 +6,7 @@
 
 body {
     font-family: sans-serif;
+    background-color: #EAEAEA;
 }
 
 #app {
@@ -77,6 +78,9 @@ main {
 
 ul {
     padding: 0;
+    height: calc(100vh - 70px - 85px - 50px - 60px);
+    overflow-y: scroll;
+
 }
 
 ul li {
