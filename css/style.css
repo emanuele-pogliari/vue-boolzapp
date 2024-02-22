@@ -6,7 +6,7 @@
 
 body {
     font-family: sans-serif;
-    background-color: #EAEAEA;
+    background-color: #DCDBD2;
 }
 
 #app {
@@ -56,11 +56,23 @@ main {
     border-left: 1px solid #d8dadd;
 }
 
-.activity-banner {
+.notification-banner {
     width: 100%;
     height: 85px;
     background-color: #8EDAFC;
+    display: flex;
+    align-items: center;
 }
+
+.notification-banner .icon-container {
+    width: 50px;
+    height: 50px;
+}
+
+.icon-container i {
+    font-size: 30px;
+}
+
 
 .search {
     height: 50px;
@@ -220,7 +232,7 @@ li:last-child {
 }
 
 .active {
-    background-color: #8EDAFC;
+    background-color: #E9EBEB;
 }
 
 .msgs {
@@ -231,5 +243,6 @@ li:last-child {
 .single-msg {
     max-width: 70%;
     margin-bottom: 15px;
+    /* margin test */
     overflow-wrap: break-word;
 }
