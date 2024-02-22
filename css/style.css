@@ -91,8 +91,10 @@ ul li {
 }
 
 .chat-window {
-    height: calc(100% - 70px);
+    height: calc(100% - 70px - 70px);
     background-repeat: repeat;
+    padding: 40px;
+    overflow-y: scroll;
 }
 
 .user-pic {
@@ -125,6 +127,7 @@ ul li {
 li {
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 li:last-child {
@@ -173,10 +176,60 @@ li:last-child {
 
 }
 
+.row-msg {
+    display: flex;
+    flex-direction: column;
+}
+
 .my-message {
-    background-color: #D5F9BA
+    align-self: flex-end;
+    background-color: #D5F9BA;
+
+    padding: 15px;
+    border-radius: 15px;
+    /* test */
 }
 
 .user-message {
+    align-self: flex-start;
     background-color: #FFFFFF;
+    padding: 15px;
+    border-radius: 15px;
+    /* test */
+}
+
+.input-bar {
+    display: flex;
+    gap: 20px;
+    background-color: #F3EEEA;
+    height: 70px;
+    padding: 10px 40px;
+    gap: 40px;
+    align-items: center;
+}
+
+.input-bar input {
+    flex-grow: 1;
+    border-radius: 8px;
+    padding: 15px 5px;
+}
+
+.input-bar i {
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.active {
+    background-color: #8EDAFC;
+}
+
+.msgs {
+    display: flex;
+    flex-direction: column;
+}
+
+.single-msg {
+    max-width: 70%;
+    margin-bottom: 15px;
+    overflow-wrap: break-word;
 }

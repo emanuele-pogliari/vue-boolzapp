@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            activeIndex: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -11,7 +12,7 @@ createApp({
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
-                            message: 'Hai portato a spasso il cane?',
+                            message: 'Hai portato a spasso il cane?vdjkgdskdfsghhjdsfgdfsjhgdfsjhgfsdjhfsdgjhdsfgjdfshgfsdfjhgsdfjhgsdfj',
                             status: 'sent'
                         },
                         {
@@ -167,5 +168,10 @@ createApp({
                 }
             ]
         }
-    }
-}).mount('#app')
+    },
+    methods: {
+        showChat(index) {
+            this.activeIndex = index;
+        }
+    },
+}).mount('#app');

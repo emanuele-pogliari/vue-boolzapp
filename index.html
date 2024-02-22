@@ -56,7 +56,7 @@
                 </div>
                 <div class="chat-list">
                     <ul>
-                        <li v-for="(object, index) in contacts">
+                        <li @click="showChat(index)" v-for="(object, index) in contacts">
                             <div class="conversation">
                                 <div class="user-pic">
                                     <img :src="object.avatar" alt="">
@@ -78,13 +78,14 @@
                 <div class="chat-info">
 
                     <div class="upper-nav">
-                        <div class="conversation actual-user">
+                        <div v-for="(contact, index) in contacts" v-show="index == activeIndex"
+                            class="conversation actual-user">
                             <div class="user-pic">
-                                <img src="./img/avatar_1.jpg" alt="">
+                                <img :src="contact.avatar" alt="">
                             </div>
                             <div class="info-conversation">
-                                <div class="name">Michele</div>
-                                <div class="last-msg">Ultimo Messaggio inviato</div>
+                                <div class="name">{{contact.name}}</div>
+                                <div class="last-msg">Ultimo Accesso: oggi alle 12:00</div>
                             </div>
                         </div>
 
@@ -96,15 +97,26 @@
                     </div>
                 </div>
                 <div class="chat-window">
-                    <div class="row-msg">
+                    <div class="page-msg" v-for="(currentPage, index) in contacts" v-show="index == activeIndex">
+                        <div class="msgs" v-for="(messages, index) in currentPage.messages">
 
+                            <div class="single-msg" :class="messages.status=='sent' ? 'my-message' : 'user-message' ">
+                                {{messages.message}}
+                            </div>
+
+                        </div>
                     </div>
-
                 </div>
+
+                <div class="input-bar">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input type="text" placeholder="Write a message">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
+
             </div>
         </main>
     </div>
-
 
     <script src="./js/script.js"></script>
 </body>
