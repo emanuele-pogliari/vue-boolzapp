@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: sans-serif;
+}
+
 #app {
     position: relative;
 }
@@ -27,7 +31,6 @@ main {
     transform: translateX(-50%);
     height: calc(100vh - 60px);
     width: 80%;
-    background-color: blue;
     display: flex;
 }
 
@@ -35,17 +38,17 @@ main {
 #aside {
     width: 35%;
     height: 100%;
-    background-color: green;
+    background-color: #FFFFFF;
 }
 
 #chat {
     width: 65%;
     height: 100%;
-    background-color: blueviolet;
+    background-image: url("../img/mine.jpg");
 }
 
-.user-info,
-.chat-info {
+
+.upper-nav {
     height: 70px;
     background-color: #EAEAEA;
     display: flex;
@@ -55,4 +58,100 @@ main {
 .chat-info {
     border-left: 1px solid;
     border-color: black;
+}
+
+.activity-banner {
+    width: 100%;
+    height: 85px;
+    background-color: #8EDAFC;
+}
+
+.search {
+    height: 50px;
+    background-color: #FAFAFA;
+    padding: 5px;
+}
+
+.search input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid grey;
+    padding: 10px;
+}
+
+ul {
+    padding: 0;
+}
+
+ul li {
+    height: 80px;
+    list-style-type: none;
+    border-bottom: 1px solid #eef0f2;
+    background-color: white;
+    padding: 10px;
+}
+
+.chat-window {
+
+    height: 100%;
+    background-repeat: repeat;
+}
+
+.user-pic {
+    width: 50px;
+    height: 50px;
+}
+
+.user-pic img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.upper-nav div {
+    display: flex;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    color: grey;
+    gap: 20px;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.conversation {
+    display: flex;
+    gap: 20px;
+}
+
+.activity-banner {
+    display: flex;
+    align-items: center;
+
+}
+
+.fa-bell-slash {
+    background-color: white;
+    border-radius: 50%;
+
+}
+
+.last-msg-time {
+    font-size: 12px;
+    color: #B6B9BB;
+}
+
+.last-msg {
+    color: #B6B9BB;
+    font-size: 13px;
 }

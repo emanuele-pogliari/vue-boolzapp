@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
     <title>Vue Boolzap</title>
 </head>
@@ -22,39 +25,167 @@
         <main id="chatbox">
 
             <div id="aside">
-
                 <div class="user-info">
+                    <div class="upper-nav">
 
-                    <div class="user-pic"></div>
-                    <div class="user-name"></div>
+                        <div class="user">
+                            <div class="user-pic">
+                                <img src="./img/avatar_io.jpg" alt="io">
+                            </div>
 
+                            <div class="user-name">
+                                Sofia
+                            </div>
+                        </div>
+
+                        <div class="options">
+
+
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                        </div>
+                    </div>
                 </div>
+                <div class="activity-banner">
 
-                <div class="options">
-
-                    <div class="activity"></div>
-                    <div class="new-msg"></div>
-                    <div class="ellipsis"></div>
-
+                    <i class="fa-solid fa-bell-slash"></i>
+                    <div>
+                        <p>Ricevi notifiche di nuovi messaggi</p>
+                        <a href="">Attiva notifiche desktop</a>
+                    </div>
                 </div>
+                <div class="search">
+                    <input type="text" placeholder="Search or start new chat">
+                </div>
+                <div class="chat-list">
+                    <ul>
+                        <li>
+                            <div class="conversation">
+                                <div class="user-pic">
+                                    <img src="./img/avatar_1.jpg" alt="">
+                                </div>
+                                <div class="info-conversation">
+                                    <div>Nome</div>
+                                    <div class="last-msg">Ultimo Messaggio inviato</div>
+                                </div>
+                            </div>
+                            <div class="last-msg-time">
+                                12:00
+                            </div>
+                        </li>
+                        <li>
+                            <div class="conversation">
+                                <div class="user-pic">
+                                    <img src="./img/avatar_2.jpg" alt="">
+                                </div>
+                                <div class="info-conversation">
+                                    <div>Nome</div>
+                                    <div class="last-msg">Ultimo Messaggio inviato</div>
+                                </div>
+                            </div>
+                            <div class="last-msg-time">
+                                12:00
+                            </div>
+                        </li>
+                        <li>
+                            <div class="conversation">
+                                <div class="user-pic">
+                                    <img src="./img/avatar_3.jpg" alt="">
+                                </div>
+                                <div class="info-conversation">
+                                    <div>Nome</div>
+                                    <div class="last-msg">Ultimo Messaggio inviato</div>
+                                </div>
+                            </div>
+                            <div class="last-msg-time">
+                                12:00
+                            </div>
+                        </li>
+                        <li>
+                            <div class="conversation">
+                                <div class="user-pic">
+                                    <img src="./img/avatar_4.jpg" alt="">
+                                </div>
+                                <div class="info-conversation">
+                                    <div>Nome</div>
+                                    <div class="last-msg">Ultimo Messaggio inviato</div>
+                                </div>
+                            </div>
+                            <div class="last-msg-time">
+                                12:00
+                            </div>
+                        </li>
+                        <li>
+                            <div class="conversation">
+                                <div class="user-pic">
+                                    <img src="./img/avatar_6.jpg" alt="">
+                                </div>
+                                <div class="info-conversation">
+                                    <div>Nome</div>
+                                    <div class="last-msg">Ultimo Messaggio inviato</div>
+                                </div>
+                            </div>
+                            <div class="last-msg-time">
+                                12:00
+                            </div>
+                        </li>
+                        <li>
+                            <div class="conversation">
+                                <div class="user-pic">
+                                    <img src="./img/avatar_6.jpg" alt="">
+                                </div>
+                                <div class="info-conversation">
+                                    <div>Nome</div>
+                                    <div class="last-msg">Ultimo Messaggio inviato</div>
+                                </div>
+                            </div>
+                            <div class="last-msg-time">
+                                12:00
+                            </div>
+                        </li>
+                        <li>
+                            <div class="conversation">
+                                <div class="user-pic">
+                                    <img src="./img/avatar_7.jpg" alt="">
+                                </div>
+                                <div class="info-conversation">
+                                    <div>Nome</div>
+                                    <div class="last-msg">Ultimo Messaggio inviato</div>
+                                </div>
 
+
+
+
+                            </div>
+                            <div class="last-msg-time">
+                                12:00
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <div id="chat">
                 <div class="chat-info">
 
-                    <div class="user-info">
-                        <div class="user-pic"></div>
-                        <div class="user-name"></div>
+                    <div class="upper-nav">
+                        <div>
+                            <div class="user-pic"></div>
+                            <div class="user-name"></div>
+                        </div>
+
+                        <div class="options">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                        </div>
                     </div>
-
-                    <div class="options">
-
-                        <div class="search"></div>
-                        <div class="paper-clip"></div>
-                        <div class="ellipsis"></div>
-
-                    </div>
+                </div>
+                <div class="chat-window">
 
                 </div>
             </div>
