@@ -53,8 +53,7 @@ main {
 }
 
 .chat-info {
-    border-left: 1px solid;
-    border-color: black;
+    border-left: 1px solid #d8dadd;
 }
 
 .activity-banner {
@@ -113,6 +112,7 @@ ul li {
 .user {
     display: flex;
     align-items: center;
+    gap: 15px;
 }
 
 .options {
@@ -125,6 +125,10 @@ ul li {
 li {
     display: flex;
     justify-content: space-between;
+}
+
+li:last-child {
+    border-bottom: none;
 }
 
 .conversation {
@@ -152,4 +156,27 @@ li {
 .last-msg {
     color: #B6B9BB;
     font-size: 13px;
+}
+
+.info-conversation {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.actual-user {
+    align-items: center;
+}
+
+.msg-container {
+    border-radius: 5px;
+
+}
+
+.my-message {
+    background-color: #D5F9BA
+}
+
+.user-message {
+    background-color: #FFFFFF;
 }
