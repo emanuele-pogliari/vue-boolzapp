@@ -178,19 +178,22 @@ createApp({
         sendMessage() {
             const newMsgObject = {
                 message: this.newMessage,
-                status: 'sent'
+                status: 'sent',
+                date: new Date().toLocaleTimeString(),
             };
             this.activeContact.messages.push(newMsgObject);
-            this.newMessage = ""
+            console.log(newMsgObject.date);
+            this.newMessage = "";
 
             // temporary solution
             setTimeout(() => {
                 const newUserMsg = {
                     message: 'OK!!',
-                    status: 'received'
+                    status: 'received',
+                    date: new Date().toLocaleTimeString(),
                 }
                 this.activeContact.messages.push(newUserMsg);
-            }, 3000);
+            }, 5000);
         },
 
 

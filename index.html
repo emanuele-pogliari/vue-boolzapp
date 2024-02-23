@@ -53,6 +53,9 @@
                     </div>
                 </div>
                 <div class="search">
+                    <button>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
                     <input type="text" placeholder="Search or start new chat">
                 </div>
                 <div class="chat-list">
@@ -102,7 +105,11 @@
                     <div class="page-msg" v-for="currentPage in activeContact.messages">
                         <div class="single-msg" :class="currentPage.status=='sent' ? 'my-message' : 'user-message' ">
                             {{currentPage.message}}
+                            <div class="time">
+                                {{currentPage.date}}
+                            </div>
                         </div>
+
                     </div>
 
                 </div>

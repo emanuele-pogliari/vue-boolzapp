@@ -78,6 +78,8 @@ main {
     height: 50px;
     background-color: #FAFAFA;
     padding: 5px;
+    display: flex;
+    justify-content: center;
 }
 
 .search input {
@@ -245,4 +247,14 @@ li:last-child {
     margin-bottom: 15px;
     /* margin test */
     overflow-wrap: break-word;
+    position: relative;
+}
+
+.single-msg .time {
+    position: absolute;
+    bottom: 5px;
+    right: 7px;
+
+    font-size: 8px;
+    color: #999;
 }
