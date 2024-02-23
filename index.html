@@ -98,17 +98,22 @@
                     </div>
                 </div>
                 <div class="chat-window">
+
                     <div class="page-msg" v-for="currentPage in activeContact.messages">
                         <div class="single-msg" :class="currentPage.status=='sent' ? 'my-message' : 'user-message' ">
                             {{currentPage.message}}
                         </div>
                     </div>
+
                 </div>
 
                 <div class="input-bar">
+
                     <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" placeholder="Write a message">
+                    <input @keyup.enter="sendMessage(index)" type="text" placeholder="Write a message"
+                        v-model="newMessage">
                     <i class="fa-solid fa-microphone"></i>
+
                 </div>
 
             </div>

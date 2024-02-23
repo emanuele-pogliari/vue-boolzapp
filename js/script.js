@@ -4,6 +4,7 @@ createApp({
     data() {
         return {
             activeContact: {},
+            newMessage: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -172,6 +173,15 @@ createApp({
     methods: {
         showChat(index) {
             this.activeContact = this.contacts[index]
+        },
+
+        sendMessage() {
+            const newMsgObject = {
+                message: this.newMessage,
+                status: 'sent'
+            };
+            this.activeContact.messages.push(newMsgObject);
+            this.newMessage = ""
         },
     },
 
