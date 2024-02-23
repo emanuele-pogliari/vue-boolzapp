@@ -5,6 +5,7 @@ createApp({
         return {
             activeContact: {},
             newMessage: "",
+            newSearchContact: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -172,7 +173,8 @@ createApp({
     },
     methods: {
         showChat(index) {
-            this.activeContact = this.contacts[index]
+            const currentIndex = this.contacts.indexOf(this.newSearch[index])
+            this.activeContact = this.contacts[currentIndex];
         },
 
         sendMessage() {
@@ -195,14 +197,22 @@ createApp({
                 this.activeContact.messages.push(newUserMsg);
             }, 5000);
         },
-
-
-
     },
 
+    computed: {
+        newSearch() {
+            return this.contacts.filter(ciao => {
+                return ciao.name.toLowerCase().includes(this.newSearchContact.toLowerCase());
+            })
+
+            // return this.contacts.filter(ciao => ciao.name.includes(this.newSearchContact))
+        }
+    },
     mounted() {
         this.activeContact = this.contacts[0]
     },
+
+
 
 
 }).mount('#app');

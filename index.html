@@ -56,11 +56,11 @@
                     <button>
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
-                    <input type="text" placeholder="Search or start new chat">
+                    <input type="text" placeholder="Search or start new chat" v-model="newSearchContact">
                 </div>
                 <div class="chat-list">
                     <ul>
-                        <li @click="showChat(index)" v-for="(object, index) in contacts"
+                        <li @click="showChat(index)" v-for="(object, index) in newSearch"
                             :class="object == activeContact ? 'active' : '' ">
                             <div class="conversation">
                                 <div class="user-pic">
