@@ -58,7 +58,7 @@
                 <div class="chat-list">
                     <ul>
                         <li @click="showChat(index)" v-for="(object, index) in contacts"
-                            :class="index == activeIndex ? 'active' : '' ">
+                            :class="object == activeContact ? 'active' : '' ">
                             <div class="conversation">
                                 <div class="user-pic">
                                     <img :src="object.avatar" alt="">
@@ -80,13 +80,12 @@
                 <div class="chat-info">
 
                     <div class="upper-nav">
-                        <div v-for="(contact, index) in contacts" v-show="index == activeIndex"
-                            class="conversation actual-user">
+                        <div class="conversation actual-user">
                             <div class="user-pic">
-                                <img :src="contact.avatar" alt="">
+                                <img :src="activeContact.avatar" alt="">
                             </div>
                             <div class="info-conversation">
-                                <div class="name">{{contact.name}}</div>
+                                <div class="name">{{activeContact.name}}</div>
                                 <div class="last-msg">Ultimo Accesso: oggi alle 12:00</div>
                             </div>
                         </div>
@@ -99,13 +98,9 @@
                     </div>
                 </div>
                 <div class="chat-window">
-                    <div class="page-msg" v-for="(currentPage, index) in contacts" v-show="index == activeIndex">
-                        <div class="msgs" v-for="(messages, index) in currentPage.messages">
-
-                            <div class="single-msg" :class="messages.status=='sent' ? 'my-message' : 'user-message' ">
-                                {{messages.message}}
-                            </div>
-
+                    <div class="page-msg" v-for="currentPage in activeContact.messages">
+                        <div class="single-msg" :class="currentPage.status=='sent' ? 'my-message' : 'user-message' ">
+                            {{currentPage.message}}
                         </div>
                     </div>
                 </div>

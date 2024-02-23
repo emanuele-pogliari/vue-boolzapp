@@ -235,7 +235,7 @@ li:last-child {
     background-color: #E9EBEB;
 }
 
-.msgs {
+.page-msg {
     display: flex;
     flex-direction: column;
 }
