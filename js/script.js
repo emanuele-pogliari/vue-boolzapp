@@ -182,7 +182,19 @@ createApp({
             };
             this.activeContact.messages.push(newMsgObject);
             this.newMessage = ""
+
+            // temporary solution
+            setTimeout(() => {
+                const newUserMsg = {
+                    message: 'OK!!',
+                    status: 'received'
+                }
+                this.activeContact.messages.push(newUserMsg);
+            }, 3000);
         },
+
+
+
     },
 
     mounted() {
