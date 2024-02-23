@@ -151,7 +151,7 @@ li:last-child {
     gap: 20px;
 }
 
-.activity-banner {
+.notification-banner {
     display: flex;
     align-items: center;
 
