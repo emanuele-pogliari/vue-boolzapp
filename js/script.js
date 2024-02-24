@@ -1,8 +1,10 @@
 const { createApp } = Vue
+const { DateTime } = luxon;
 
 createApp({
     data() {
         return {
+            currentIndex: "",
             activeContact: {},
             newMessage: "",
             newSearchContact: "",
@@ -173,38 +175,50 @@ createApp({
     },
     methods: {
         showChat(index) {
-            const currentIndex = this.contacts.indexOf(this.newSearch[index])
-            this.activeContact = this.contacts[currentIndex];
+            this.currentIndex = this.contacts.indexOf(this.newSearch[index])
+            this.activeContact = this.contacts[this.currentIndex];
         },
 
         sendMessage() {
+
             const newMsgObject = {
                 message: this.newMessage,
                 status: 'sent',
-                date: new Date().toLocaleTimeString(),
+                date: DateTime.now().toFormat('T'),
             };
-            this.activeContact.messages.push(newMsgObject);
-            console.log(newMsgObject.date);
-            this.newMessage = "";
+            if (this.newMessage.length != 0 && this.newMessage.trim()) {
+                this.activeContact.messages.push(newMsgObject);
+                console.log(newMsgObject.date);
+                this.newMessage = "";
 
-            // temporary solution
-            setTimeout(() => {
-                const newUserMsg = {
-                    message: 'OK!!',
-                    status: 'received',
-                    date: new Date().toLocaleTimeString(),
-                }
-                this.activeContact.messages.push(newUserMsg);
-            }, 5000);
+
+
+                // temporary solution
+                setTimeout(() => {
+                    const newUserMsg = {
+                        message: 'OK!!',
+                        status: 'received',
+                        date: DateTime.now().toFormat('T'),
+                    }
+
+
+                    this.activeContact.messages.push(newUserMsg);
+
+                }, 5000);
+            }
         },
+
+        convertTime(pippo) {
+            return pippo.messages[pippo.messages.length - 1].date.split(" ")[1].split(":").slice(0, 2).join(":");
+        }
     },
+
 
     computed: {
         newSearch() {
-            return this.contacts.filter(ciao => {
-                return ciao.name.toLowerCase().includes(this.newSearchContact.toLowerCase());
+            return this.contacts.filter(contact => {
+                return contact.name.toLowerCase().includes(this.newSearchContact.toLowerCase());
             })
-
             // return this.contacts.filter(ciao => ciao.name.includes(this.newSearchContact))
         }
     },

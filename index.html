@@ -68,11 +68,13 @@
                                 </div>
                                 <div class="info-conversation">
                                     <div class="name">{{ object.name }}</div>
-                                    <div class="last-msg">Ultimo Messaggio inviato</div>
+                                    <div class="last-msg">{{object.messages[object.messages.length - 1].message}}
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="last-msg-time">
-                                12:00
+                                {{convertTime(object)}}
                             </div>
                         </li>
                     </ul>
@@ -89,7 +91,9 @@
                             </div>
                             <div class="info-conversation">
                                 <div class="name">{{activeContact.name}}</div>
-                                <div class="last-msg">Ultimo Accesso: oggi alle 12:00</div>
+                                <div class="last-access">
+
+                                </div>
                             </div>
                         </div>
 
@@ -109,24 +113,18 @@
                                 {{currentPage.date}}
                             </div>
                         </div>
-
                     </div>
-
                 </div>
-
                 <div class="input-bar">
-
                     <i class="fa-regular fa-face-smile"></i>
                     <input @keyup.enter="sendMessage(index)" type="text" placeholder="Write a message"
                         v-model="newMessage">
                     <i class="fa-solid fa-microphone"></i>
-
                 </div>
-
             </div>
         </main>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
 
