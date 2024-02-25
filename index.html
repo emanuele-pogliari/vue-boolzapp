@@ -23,6 +23,7 @@
         </div>
         <main id="chatbox">
 
+
             <div id="aside">
                 <div class="user-info">
                     <div class="upper-nav">
@@ -103,6 +104,7 @@
                 <img src="" alt="">
             </div>
             <div v-else="" id="chat">
+                <i @click="scrollToBottom()" class="auto-scroll-btn fa-solid fa-circle-arrow-down"></i>
                 <div class="chat-info">
 
                     <div class="upper-nav">
@@ -128,14 +130,14 @@
                 </div>
 
                 <div class="chat-window" ref="scrollPage">
-                    <button @click="scrollToBottom()">SCROLLALO</button>
-                    <div class="page-msg" v-for="(currentPage,index) in activeContact.messages">
+
+                    <div class="page-msg py-3 " v-for="(currentPage,index) in activeContact.messages">
                         <div class="single-msg" :class="currentPage.status=='sent' ? 'my-message' : 'user-message' ">
                             {{currentPage.message}}
                             <div class="time">
                                 {{convertTime(currentPage)}}
                             </div>
-                            <div class="dropdown">
+                            <div class="dropdown btn-dropdwon">
                                 <div class="chevron-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-chevron-down"></i>
                                     <ul class="dropdown-menu">

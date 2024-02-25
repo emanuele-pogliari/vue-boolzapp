@@ -203,13 +203,15 @@ createApp({
 
         sendMessage() {
 
+            const userTarget = this.activeContact;
+
             const newMsgObject = {
                 message: this.newMessage,
                 status: 'sent',
                 date: new Date().toLocaleString("it-IT"),
             };
             if (this.newMessage.length != 0 && this.newMessage.trim()) {
-                this.activeContact.messages.push(newMsgObject);
+                userTarget.messages.push(newMsgObject);
                 this.newMessage = "";
                 this.scrollToBottom();
 
@@ -221,7 +223,7 @@ createApp({
                         status: 'received',
                         date: new Date().toLocaleString("it-IT"),
                     }
-                    this.activeContact.messages.push(newUserMsg);
+                    userTarget.messages.push(newUserMsg);
                     this.scrollToBottom();
 
                 }, 3000);
@@ -244,7 +246,6 @@ createApp({
         },
 
         deleteMessage(current, index) {
-
             current.messages.splice(index, 1)
         },
 

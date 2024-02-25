@@ -110,6 +110,7 @@ main {
     background-repeat: repeat;
     padding: 40px;
     overflow-y: scroll;
+
 }
 
 .user-pic {
@@ -240,11 +241,10 @@ main {
 
 .single-msg {
     max-width: 70%;
-    margin-bottom: 15px;
-    /* margin test */
     overflow-wrap: break-word;
     position: relative;
     display: flex;
+    padding-right: 30px;
 }
 
 .single-msg .time {
@@ -256,6 +256,37 @@ main {
     color: #999;
 }
 
-.chevron-btn {
-    padding-left: 5px;
+.btn-dropdwon {
+    position: absolute;
+    font-size: 13px;
+    top: 10px;
+    right: 15px;
+}
+
+.chevron-btn .fa-chevron-down {
+    opacity: 0;
+    transition: opactity 0.2s ease;
+}
+
+.single-msg:hover .chevron-btn .fa-chevron-down {
+    opacity: 1;
+
+}
+
+.auto-scroll-btn {
+    border-radius: 50%;
+    position: absolute;
+    bottom: 100px;
+    right: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+.fa-paper-plane {
+    color: #00d0a0;
+}
+
+.fa-circle-arrow-down {
+    font-size: 28px;
+    color: rgb(4, 78, 238);
 }
