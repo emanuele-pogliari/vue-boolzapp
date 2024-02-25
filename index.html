@@ -110,7 +110,7 @@
                     </div>
                 </div>
 
-                <div class="chat-window" ref="myScrollTarget">
+                <div class="chat-window" ref="scrollPage">
                     <button @click="scrollToBottom()">SCROLLALO</button>
                     <div class="page-msg" v-for="(currentPage,index) in activeContact.messages">
                         <div class="single-msg" :class="currentPage.status=='sent' ? 'my-message' : 'user-message' ">
@@ -134,7 +134,7 @@
                     <i class="fa-regular fa-face-smile"></i>
                     <input @keyup.enter="sendMessage(index)" type="text" placeholder="Write a message"
                         v-model="newMessage">
-                    <i :class="userIsTyping()"></i>
+                    <i @click="sendMessage(index)" :class="userIsTyping()"></i>
                 </div>
             </div>
         </main>

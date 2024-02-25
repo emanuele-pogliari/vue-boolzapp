@@ -1,5 +1,5 @@
 const { createApp } = Vue
-const { DateTime } = luxon;
+
 
 createApp({
     data() {
@@ -174,6 +174,23 @@ createApp({
             newSearchContact: "",
             welcomeMsg: true,
             isTyping: false,
+
+            cpuResponse: [
+                "Messaggio1",
+                "Messaggio2",
+                "Messaggio3",
+                "Messaggio4",
+                "Messaggio5",
+                "Messaggio6",
+                "Messaggio7",
+                "Messaggio8",
+                "Messaggio9",
+                "Messaggio10",
+                "Messaggio11",
+                "Messaggio12",
+                "Messaggio13",
+                "Messaggio14",
+            ]
         }
     },
     methods: {
@@ -184,7 +201,7 @@ createApp({
         },
 
         sendMessage() {
-            this.isTyping = false;
+
             const newMsgObject = {
                 message: this.newMessage,
                 status: 'sent',
@@ -199,7 +216,7 @@ createApp({
                 setTimeout(() => {
 
                     const newUserMsg = {
-                        message: 'OK!!',
+                        message: this.randomResponse(),
                         status: 'received',
                         date: new Date().toLocaleString("it-IT"),
                     }
@@ -207,7 +224,10 @@ createApp({
                     this.scrollToBottom();
 
                 }, 3000);
+                this.newMessage = "";
+                this.isTyping = false;
             }
+
         },
 
         convertTime(object) {
@@ -228,7 +248,7 @@ createApp({
         },
 
         scrollToBottom() {
-            const targetRef = this.$refs.myScrollTarget;
+            const targetRef = this.$refs.scrollPage;
             this.$nextTick(() => {
                 targetRef.scrollTo(
                     {
@@ -238,6 +258,11 @@ createApp({
                     }
                 );
             });
+        },
+
+        randomResponse() {
+            let number = Math.floor(Math.random() * this.cpuResponse.length);
+            return this.cpuResponse[number];
         }
     },
 
@@ -247,15 +272,10 @@ createApp({
                 return contact.name.toLowerCase().includes(this.newSearchContact.toLowerCase());
             })
         },
-
-
-
     },
     mounted() {
 
     },
-
-
 
 
 }).mount('#app');
