@@ -201,15 +201,14 @@ createApp({
                         date: new Date().toLocaleString("it-IT"),
                     }
 
-
                     this.activeContact.messages.push(newUserMsg);
 
                 }, 3000);
             }
         },
 
-        convertTime(pippo) {
-            const justTime = pippo.date.split(" ")[1]
+        convertTime(object) {
+            const justTime = object.date.split(" ")[1]
             return justTime.split(":").slice(0, 2).join(":");
         }
 

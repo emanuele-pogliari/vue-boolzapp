@@ -96,7 +96,8 @@
                             <div class="info-conversation">
                                 <div class="name">{{activeContact.name}}</div>
                                 <div class="last-access">
-                                    {{}}
+                                    Ultimo accesso oggi alle:
+                                    {{convertTime(activeContact.messages[activeContact.messages.length - 1])}}
                                 </div>
                             </div>
                         </div>
