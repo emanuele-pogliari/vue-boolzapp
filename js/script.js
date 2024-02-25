@@ -4,11 +4,7 @@ const { DateTime } = luxon;
 createApp({
     data() {
         return {
-            currentIndex: "",
-            activeContact: {},
-            newMessage: "",
-            newSearchContact: "",
-            welcomeMsg: true,
+
             contacts: [
                 {
                     name: 'Michele',
@@ -171,7 +167,13 @@ createApp({
                         }
                     ],
                 }
-            ]
+            ],
+            currentIndex: "",
+            activeContact: {},
+            newMessage: "",
+            newSearchContact: "",
+            welcomeMsg: true,
+            isTyping: false,
         }
     },
     methods: {
@@ -182,6 +184,7 @@ createApp({
         },
 
         sendMessage() {
+            this.isTyping = false;
             const newMsgObject = {
                 message: this.newMessage,
                 status: 'sent',
@@ -189,7 +192,6 @@ createApp({
             };
             if (this.newMessage.length != 0 && this.newMessage.trim()) {
                 this.activeContact.messages.push(newMsgObject);
-
                 this.newMessage = "";
 
                 // temporary solution
@@ -200,7 +202,6 @@ createApp({
                         status: 'received',
                         date: new Date().toLocaleString("it-IT"),
                     }
-
                     this.activeContact.messages.push(newUserMsg);
 
                 }, 3000);
@@ -210,8 +211,24 @@ createApp({
         convertTime(object) {
             const justTime = object.date.split(" ")[1]
             return justTime.split(":").slice(0, 2).join(":");
-        }
+        },
 
+        userIsTyping() {
+            if (this.newMessage.length != 0 && this.newMessage.trim()) {
+                this.isTyping = true
+            }
+            return this.isTyping == true ? `fa-solid fa-paper-plane` : `fa-solid fa-microphone`;
+        },
+
+        deleteMessage(currentIndex) {
+            const index = this.activeContact.messages.indexOf(currentIndex);
+            console.log(index)
+            if (currentIndex.length == 0) {
+                this.activeContact.messages.splice(0, 1)
+            } else {
+                this.activeContact.messages.splice(index, 1)
+            }
+        },
     },
 
     computed: {
@@ -219,7 +236,9 @@ createApp({
             return this.contacts.filter(contact => {
                 return contact.name.toLowerCase().includes(this.newSearchContact.toLowerCase());
             })
-        }
+        },
+
+
     },
     mounted() {
     },
@@ -228,3 +247,6 @@ createApp({
 
 
 }).mount('#app');
+
+
+

@@ -60,8 +60,8 @@
                     </button>
                     <input type="text" placeholder="Search or start new chat" v-model="newSearchContact">
                 </div>
-                <div class="chat-list">
-                    <ul>
+                <div class="list-box">
+                    <ul class="chat-list">
                         <li @click="showChat(index)" v-for="(object, index) in newSearch"
                             :class="object == activeContact ? 'active' : '' ">
                             <div class="conversation">
@@ -119,10 +119,11 @@
                                 {{convertTime(currentPage)}}
                             </div>
                             <div class="dropdown">
-                                <div type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="chevron-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-chevron-down"></i>
                                     <ul class="dropdown-menu">
-                                        <li>Delete Message</li>
+                                        <li @click=deleteMessage(currentPage) class="list-item ps-3">Delete Message
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -133,7 +134,7 @@
                     <i class="fa-regular fa-face-smile"></i>
                     <input @keyup.enter="sendMessage(index)" type="text" placeholder="Write a message"
                         v-model="newMessage">
-                    <i class="fa-solid fa-microphone"></i>
+                    <i :class="userIsTyping()"></i>
                 </div>
             </div>
         </main>

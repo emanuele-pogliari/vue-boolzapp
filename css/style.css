@@ -88,18 +88,20 @@ main {
     padding: 10px;
 }
 
-ul {
+.chat-list {
     padding: 0;
     height: calc(100vh - 70px - 85px - 50px - 60px);
     overflow-y: scroll;
 
 }
 
-ul li {
+.chat-list li {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
     height: 80px;
     list-style-type: none;
     border-bottom: 1px solid #eef0f2;
-    background-color: white;
     padding: 10px;
 }
 
@@ -138,13 +140,7 @@ ul li {
     gap: 20px;
 }
 
-li {
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-}
-
-li:last-child {
+.chat-list li:last-child {
     border-bottom: none;
 }
 
@@ -178,7 +174,7 @@ li:last-child {
 .info-conversation {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    overflow: hidden;
 }
 
 .actual-user {
@@ -248,6 +244,7 @@ li:last-child {
     /* margin test */
     overflow-wrap: break-word;
     position: relative;
+    display: flex;
 }
 
 .single-msg .time {
@@ -257,4 +254,10 @@ li:last-child {
 
     font-size: 8px;
     color: #999;
+}
+
+
+
+.chevron-btn {
+    padding-left: 5px;
 }
