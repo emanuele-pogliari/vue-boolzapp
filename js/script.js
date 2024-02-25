@@ -174,6 +174,7 @@ createApp({
             newSearchContact: "",
             welcomeMsg: true,
             isTyping: false,
+            newContact: [],
 
             cpuResponse: [
                 "Messaggio1",
@@ -242,9 +243,9 @@ createApp({
             return this.isTyping == true ? `fa-solid fa-paper-plane` : `fa-solid fa-microphone`;
         },
 
-        deleteMessage(currentIndex) {
-            const index = this.activeContact.messages.indexOf(currentIndex);
-            this.activeContact.messages.splice(index, 1)
+        deleteMessage(current, index) {
+
+            current.messages.splice(index, 1)
         },
 
         scrollToBottom() {
@@ -263,7 +264,26 @@ createApp({
         randomResponse() {
             let number = Math.floor(Math.random() * this.cpuResponse.length);
             return this.cpuResponse[number];
-        }
+        },
+
+        addContact() {
+
+            if (this.newContact.length != 0 && this.newContact.trim()) {
+                this.contacts.push({
+                    name: this.newContact,
+                    avatar: './img/generic-avatar.png',
+                    visible: true,
+                    messages: [
+                        {
+                            date: new Date().toLocaleString("it-IT"),
+                            message: " ",
+                        }
+                    ]
+                }),
+                    this.newContact = "";
+            }
+
+        },
     },
 
     computed: {

@@ -39,7 +39,24 @@
                         <div class="options">
 
                             <i class="fa-solid fa-circle-notch"></i>
-                            <i class="fa-solid fa-message"></i>
+
+                            <div class="dropdown">
+                                <div type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-message"></i>
+                                </div>
+                                <ul class="dropdown-menu p-2">
+                                    <li class="text-center">Start Conversation</li>
+                                    <li>
+                                        <div class="input-group flex-nowrap">
+                                            <input v-model="newContact" class="form-control my_w" type="text"
+                                                placeholder="Write a Name" aria-label="default input example"
+                                                @keyup.enter="addContact">
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+
                             <i class="fa-solid fa-ellipsis-vertical"></i>
 
                         </div>
@@ -122,7 +139,8 @@
                                 <div class="chevron-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-chevron-down"></i>
                                     <ul class="dropdown-menu">
-                                        <li @click=deleteMessage(currentPage) class="list-item ps-3">Delete Message
+                                        <li @click=deleteMessage(activeContact,index) class="list-item ps-3">Delete
+                                            Message
                                         </li>
                                     </ul>
                                 </div>
