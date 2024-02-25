@@ -193,6 +193,7 @@ createApp({
             if (this.newMessage.length != 0 && this.newMessage.trim()) {
                 this.activeContact.messages.push(newMsgObject);
                 this.newMessage = "";
+                this.scrollToBottom();
 
                 // temporary solution
                 setTimeout(() => {
@@ -203,6 +204,7 @@ createApp({
                         date: new Date().toLocaleString("it-IT"),
                     }
                     this.activeContact.messages.push(newUserMsg);
+                    this.scrollToBottom();
 
                 }, 3000);
             }
@@ -222,13 +224,21 @@ createApp({
 
         deleteMessage(currentIndex) {
             const index = this.activeContact.messages.indexOf(currentIndex);
-            console.log(index)
-            if (currentIndex.length == 0) {
-                this.activeContact.messages.splice(0, 1)
-            } else {
-                this.activeContact.messages.splice(index, 1)
-            }
+            this.activeContact.messages.splice(index, 1)
         },
+
+        scrollToBottom() {
+            const targetRef = this.$refs.myScrollTarget;
+            this.$nextTick(() => {
+                targetRef.scrollTo(
+                    {
+                        top: targetRef.scrollHeight,
+                        left: 0,
+                        behavior: "smooth"
+                    }
+                );
+            });
+        }
     },
 
     computed: {
@@ -239,8 +249,10 @@ createApp({
         },
 
 
+
     },
     mounted() {
+
     },
 
 

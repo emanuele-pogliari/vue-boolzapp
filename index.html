@@ -110,8 +110,8 @@
                     </div>
                 </div>
 
-                <div class="chat-window">
-
+                <div class="chat-window" ref="myScrollTarget">
+                    <button @click="scrollToBottom()">SCROLLALO</button>
                     <div class="page-msg" v-for="(currentPage,index) in activeContact.messages">
                         <div class="single-msg" :class="currentPage.status=='sent' ? 'my-message' : 'user-message' ">
                             {{currentPage.message}}
