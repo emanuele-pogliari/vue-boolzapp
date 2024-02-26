@@ -252,6 +252,16 @@ createApp({
             current.messages.splice(index, 1)
         },
 
+        deleteAllMessages(current) {
+            current.messages.splice(0, current.messages.length);
+        },
+
+        deleteConversation(current) {
+            this.contacts[0].splice(0, this.contacts[0].length)
+        },
+
+
+
         // this function uses nextTick to scrollPage
         scrollToBottom() {
             const targetRef = this.$refs.scrollPage;

@@ -134,7 +134,21 @@
                         <div class="options">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-paperclip"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <div class="dropdown btn-dropdwon">
+                                <div class="ellipsis-chat" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    <ul class="dropdown-menu">
+                                        <li @click=deleteAllMessages(activeContact) class="list-item ps-3">Delete
+                                            All Messages
+                                        </li>
+                                        <li @click=deleteConversation(activeContact) class="list-item ps-3">Delete
+                                            Conversation
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
