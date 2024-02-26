@@ -195,14 +195,15 @@ createApp({
         }
     },
     methods: {
+        // show single msg contacts, search on list contacts and welcome msg
         showChat(index) {
             this.currentIndex = this.contacts.indexOf(this.newSearch[index])
             this.activeContact = this.contacts[this.currentIndex];
             this.welcomeMsg = false;
         },
 
+        // function that will send user and computer msgs
         sendMessage() {
-
             const userTarget = this.activeContact;
 
             const newMsgObject = {
@@ -232,12 +233,13 @@ createApp({
             }
 
         },
-
+        // function that will convert time with just hours and minutes
         convertTime(object) {
             const justTime = object.date.split(" ")[1]
             return justTime.split(":").slice(0, 2).join(":");
         },
 
+        // this function checks if user is typing and change the icon near to the input
         userIsTyping() {
             if (this.newMessage.length != 0 && this.newMessage.trim()) {
                 this.isTyping = true
@@ -245,10 +247,12 @@ createApp({
             return this.isTyping == true ? `fa-solid fa-paper-plane` : `fa-solid fa-microphone`;
         },
 
+        // won't work properly, it needs to be fixed
         deleteMessage(current, index) {
             current.messages.splice(index, 1)
         },
 
+        // this function uses nextTick to scrollPage
         scrollToBottom() {
             const targetRef = this.$refs.scrollPage;
             this.$nextTick(() => {
@@ -261,12 +265,13 @@ createApp({
                 );
             });
         },
-
+        // generate a random response for the user msg
         randomResponse() {
             let number = Math.floor(Math.random() * this.cpuResponse.length);
             return this.cpuResponse[number];
         },
 
+        // add a new contact, won't work properly, it needs to be fixed, i cannot add a new contact without a message inside, this is related with the deleteMessage error function 
         addContact() {
 
             if (this.newContact.length != 0 && this.newContact.trim()) {
@@ -286,8 +291,8 @@ createApp({
 
         },
     },
-
     computed: {
+        // this function will search inside contacts object the names 
         newSearch() {
             return this.contacts.filter(contact => {
                 return contact.name.toLowerCase().includes(this.newSearchContact.toLowerCase());
