@@ -43,6 +43,7 @@ main {
 }
 
 
+
 .upper-nav {
     height: 70px;
     background-color: #EAEAEA;
@@ -220,7 +221,7 @@ main {
 }
 
 .input-bar input {
-    flex-grow: 1;
+    width: 100%;
     border-radius: 8px;
     padding: 15px 5px;
 }
@@ -289,4 +290,38 @@ main {
 .fa-circle-arrow-down {
     font-size: 28px;
     color: rgb(4, 78, 238);
+}
+
+.dark-mode {
+    background-color: #3c3c36;
+}
+
+.btn-dark-toggle {
+    right: 0
+}
+
+.dark-mode .chat-list,
+.dark-mode .upper-nav {
+    background-color: #2c2c2a;
+}
+
+.dark-mode .chat-list li {
+    color: white;
+    border-color: black;
+}
+
+.dark-mode .chat-list {
+    color: white;
+}
+
+.dark-mode .green-row {
+    background-color: #005c52;
+}
+
+.dark-mode .input-bar {
+    background-color: #171717;
+}
+
+.dark-mode .input-bar i {
+    color: white;
 }

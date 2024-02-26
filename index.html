@@ -21,9 +21,10 @@
         <div class="green-row">
 
         </div>
+
         <main id="chatbox">
 
-
+            <button class="btn-dark-toggle position-absolute" @click="toggleDarkMode()">dark</button>
             <div id="aside">
                 <div class="user-info">
                     <div class="upper-nav">
@@ -73,10 +74,8 @@
                     </div>
                 </div>
                 <div class="search">
-                    <button>
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                    <input type="text" placeholder="Search or start new chat" v-model="newSearchContact">
+                    <input class="rounded-2 " type="text" placeholder="Search or start new chat"
+                        v-model="newSearchContact">
                 </div>
                 <div class="list-box">
                     <ul class="chat-list">
@@ -101,7 +100,7 @@
                                         </div>
 
                                     </div>
-                                    <div v-else>No Messages</div>
+                                    <div class="last-msg" v-else>No Messages</div>
 
                                 </div>
 
@@ -134,12 +133,13 @@
                         <div class="options">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-paperclip"></i>
-                            <div class="dropdown btn-dropdwon">
+                            <div class="dropdown">
                                 <div class="ellipsis-chat" type="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     <i class="fa-solid fa-ellipsis-vertical"></i>
                                     <ul class="dropdown-menu">
-                                        <li @click=deleteAllMessages(activeContact) class="list-item ps-3">Delete
+                                        <li class="text-nowrap " @click=deleteAllMessages(activeContact)
+                                            class="list-item ps-3">Delete
                                             All Messages
                                         </li>
                                         <li @click=deleteConversation(activeContact) class="list-item ps-3">Delete

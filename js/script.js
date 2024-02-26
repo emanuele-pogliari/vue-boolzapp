@@ -229,7 +229,6 @@ createApp({
 
                 }, 3000);
                 this.newMessage = "";
-                this.isTyping = false;
             }
 
         },
@@ -244,10 +243,12 @@ createApp({
             if (this.newMessage.length != 0 && this.newMessage.trim()) {
                 this.isTyping = true
             }
+            else {
+                this.isTyping = false
+            }
             return this.isTyping == true ? `fa-solid fa-paper-plane` : `fa-solid fa-microphone`;
         },
 
-        // won't work properly, it needs to be fixed
         deleteMessage(current, index) {
             current.messages.splice(index, 1)
         },
@@ -256,11 +257,18 @@ createApp({
             current.messages.splice(0, current.messages.length);
         },
 
-        deleteConversation(current) {
-            this.contacts[0].splice(0, this.contacts[0].length)
+        deleteConversation() {
+            const indexCurrentChat = this.contacts.indexOf(this.activeContact);
+
+            if (indexCurrentChat > -1) {
+                this.contacts.splice(indexCurrentChat, 1);
+                if (this.contacts.length > 0) {
+                    this.activeContact = this.contacts[indexCurrentChat];
+                } else {
+                    this.activeContact = {};
+                }
+            }
         },
-
-
 
         // this function uses nextTick to scrollPage
         scrollToBottom() {
@@ -290,15 +298,16 @@ createApp({
                     avatar: './img/generic-avatar.png',
                     visible: true,
                     messages: [
-                        {
-                            date: new Date().toLocaleString("it-IT"),
-                            message: " ",
-                        }
+
                     ]
                 }),
                     this.newContact = "";
             }
 
+        },
+
+        toggleDarkMode() {
+            document.documentElement.classList.toggle("dark-mode");
         },
     },
     computed: {
