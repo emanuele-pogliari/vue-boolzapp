@@ -86,15 +86,26 @@
                                 <div class="user-pic">
                                     <img :src="object.avatar" alt="">
                                 </div>
+
                                 <div class="info-conversation">
+
                                     <div class="name">{{ object.name }}</div>
-                                    <div class="last-msg">{{object.messages[object.messages.length - 1].message}}
+
+                                    <div v-if="object.messages.length > 0">
+
+                                        <div class="last-msg">{{object.messages[object.messages.length - 1].message}}
+                                        </div>
+
+                                        <div class="last-msg-time">
+                                            {{convertTime(object.messages[object.messages.length - 1])}}
+                                        </div>
+
                                     </div>
+
                                 </div>
+
                             </div>
-                            <div class="last-msg-time">
-                                {{convertTime(object.messages[object.messages.length - 1])}}
-                            </div>
+
                         </li>
                     </ul>
                 </div>

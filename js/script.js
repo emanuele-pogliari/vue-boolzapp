@@ -234,8 +234,8 @@ createApp({
 
         },
         // function that will convert time with just hours and minutes
-        convertTime(object) {
-            const justTime = object.date.split(" ")[1]
+        convertTime(cioa) {
+            const justTime = cioa.date.split(" ")[1]
             return justTime.split(":").slice(0, 2).join(":");
         },
 
