@@ -175,6 +175,7 @@ createApp({
             welcomeMsg: true,
             isTyping: false,
             newContact: [],
+            isDarkMode: false,
 
             cpuResponse: [
                 "Messaggio1",
@@ -233,8 +234,8 @@ createApp({
 
         },
         // function that will convert time with just hours and minutes
-        convertTime(cioa) {
-            const justTime = cioa.date.split(" ")[1]
+        convertTime(object) {
+            const justTime = object.date.split(" ")[1]
             return justTime.split(":").slice(0, 2).join(":");
         },
 
@@ -303,11 +304,11 @@ createApp({
                 }),
                     this.newContact = "";
             }
-
         },
 
         toggleDarkMode() {
             document.documentElement.classList.toggle("dark-mode");
+            this.isDarkMode = !this.isDarkMode
         },
     },
     computed: {
@@ -319,6 +320,7 @@ createApp({
         },
     },
     mounted() {
+
 
     },
 
