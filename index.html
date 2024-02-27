@@ -18,30 +18,49 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <div id="app">
+
         <div class="green-row">
 
         </div>
+
         <main id="chatbox" class="rounded-4">
+
             <div id="aside">
+
                 <div class="user-info">
+
                     <div class="upper-nav">
+
                         <div class="user">
+
                             <div class="user-pic">
                                 <img src="./img/avatar_io.jpg" alt="io">
                             </div>
+
                             <div class="user-name">
                                 Sofia
                             </div>
+
                         </div>
+
+                        <!-- icon options -->
                         <div class="options">
+
                             <i @click="toggleDarkMode()"
                                 :class="isDarkMode ? `fa-solid fa-moon` : `fa-solid fa-sun`"></i>
+                            <!-- menu that add contact on chatlist -->
                             <div class="dropdown">
+
                                 <div type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-message"></i>
                                 </div>
+
                                 <ul class="dropdown-menu p-2">
-                                    <li class="text-center">Start Conversation</li>
+
+                                    <li class="text-center">
+                                        Start Conversation
+                                    </li>
+
                                     <li>
                                         <div class="input-group flex-nowrap">
                                             <input v-model="newContact" class="form-control my_w" type="text"
@@ -49,28 +68,39 @@
                                                 @keyup.enter="addContact">
                                         </div>
                                     </li>
+
                                 </ul>
+
                             </div>
+
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
+
                     </div>
+
                 </div>
+
                 <div class="notification-banner">
+
                     <i class="fa-solid fa-bell-slash"></i>
                     <div>
                         <p class="m-0">Ricevi notifiche di nuovi messaggi</p>
                         <a href="">Attiva notifiche desktop</a>
                     </div>
+
                 </div>
+
                 <div class="search">
                     <input class="rounded-2 " type="text" placeholder="Search or start new chat"
                         v-model="newSearchContact">
                 </div>
+                <!-- contact list -->
                 <div class="list-box">
                     <ul class="chat-list m-0">
                         <li @click="showChat(index)" v-for="(object, index) in newSearch"
                             :class="object == activeContact ? 'active' : '' ">
                             <div class="conversation">
+                                <!-- container of user img, name and last message -->
                                 <div class="d-flex gap-2  ">
                                     <div class="user-pic">
                                         <img :src="object.avatar" alt="">
@@ -83,9 +113,11 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- last time access -->
                                 <div v-if="object.messages.length > 0" class="last-msg-time">
                                     {{convertTime(object.messages[object.messages.length - 1])}}
                                 </div>
+                                <!-- this will popup when there is no message on conversation -->
                                 <div class="last-msg" v-else>No Messages</div>
                             </div>
                         </li>
@@ -93,11 +125,12 @@
 
                 </div>
             </div>
-
+            <!-- show welcome message -->
             <div v-if="welcomeMsg == true">
                 <img src="./img/Whats-App.jpg" class="img-fluid h-100" alt="">
                 <div class="position-absolute my-wel-msg"> Click on a conversation to start chat!</div>
             </div>
+            <!-- show all chat window -->
             <div v-else="" id="chat">
                 <i @click="scrollToBottom()" class="auto-scroll-btn fa-solid fa-circle-arrow-down"></i>
                 <div class="chat-info">
@@ -115,6 +148,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- option icons -->
                         <div class="options">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-paperclip"></i>
@@ -160,15 +194,20 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="input-bar">
                     <i class="fa-regular fa-face-smile"></i>
                     <input class="ps-3" @keyup.enter="sendMessage(index)" type="text" placeholder="Write a message"
                         v-model="newMessage">
                     <i @click="sendMessage(index)" :class="userIsTyping()"></i>
                 </div>
+
             </div>
+
         </main>
+
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
