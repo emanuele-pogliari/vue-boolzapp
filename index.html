@@ -67,7 +67,7 @@
                         v-model="newSearchContact">
                 </div>
                 <div class="list-box">
-                    <ul class="chat-list">
+                    <ul class="chat-list m-0">
                         <li @click="showChat(index)" v-for="(object, index) in newSearch"
                             :class="object == activeContact ? 'active' : '' ">
                             <div class="conversation">
@@ -102,7 +102,7 @@
                 <div class="chat-info">
 
                     <div class="upper-nav">
-                        <div class="conversation actual-user">
+                        <div class="conversation actual-user gap-2">
                             <div class="user-pic">
                                 <img :src="activeContact.avatar" alt="">
                             </div>
