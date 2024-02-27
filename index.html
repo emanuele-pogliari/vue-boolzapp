@@ -95,7 +95,8 @@
             </div>
 
             <div v-if="welcomeMsg == true">
-                <img src="" alt="">
+                <img src="./img/Whats-App.jpg" class="img-fluid h-100" alt="">
+                <div class="position-absolute my-wel-msg"> Click on a conversation to start chat!</div>
             </div>
             <div v-else="" id="chat">
                 <i @click="scrollToBottom()" class="auto-scroll-btn fa-solid fa-circle-arrow-down"></i>
@@ -161,7 +162,7 @@
                 </div>
                 <div class="input-bar">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input @keyup.enter="sendMessage(index)" type="text" placeholder="Write a message"
+                    <input class="ps-3" @keyup.enter="sendMessage(index)" type="text" placeholder="Write a message"
                         v-model="newMessage">
                     <i @click="sendMessage(index)" :class="userIsTyping()"></i>
                 </div>
